@@ -1,0 +1,147 @@
+.phone{
+    display: grid;
+    grid-template-rows: 1fr 10fr 1.5fr;
+    grid-template-columns: .5fr 10fr .5fr;
+    grid-template-areas: 
+    "v h p"
+    "v s p"
+    "v c p";
+}
+
+.volume{
+    grid-area: v;
+    position: relative;
+    &__up, &__down{
+        position: absolute;
+        right: 0%;
+        width: .6em;
+        height: 5em;
+        background-color: #1E1E1E;
+        border-radius: .2em 0em 0em .2em;
+        cursor: pointer;
+
+        transition: width 100ms ease-in-out;
+        &:active{
+            width: .3em;
+        }
+    }
+    
+    &__up{
+        top: 20%
+    }
+
+    &__down{
+        top: 33%
+    }
+}
+
+.head{
+    grid-area: h;
+    background-color: #1E1E1E;
+    border-radius: 1.2em 1.2em 0em 0em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.speaker{
+    display: flex;
+    background-color: #7D7D7D;
+    // height: .8em;
+    padding: .1em;
+    border-radius: 2em;
+}
+.ellipse{
+    min-width: .5em;
+    min-height: .5em;
+    border-radius: 50%;
+    background-color: #565656;
+    margin-left: .1em;
+}
+
+.screen{
+    grid-area: s;
+    background-color:#1E1E1E;
+    padding-inline: 1em;
+}
+
+.camera{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #565656;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    position: absolute;
+    left: 70%;
+
+    &__outer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        background-color: #7D7D7D;
+    }
+
+    &__inner{
+        width: .4em;
+        height: .4em;
+        border-radius: 50%;
+        background-color: #B1B1B1;
+    }
+}
+
+.chin{
+    grid-area: c;
+    background-color:#1E1E1E;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    border-radius: 0em 0em 1.2em 1.2em;
+    
+
+    &__left, &__center, &__right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__left, &__right{
+        img {
+            width: 1.5em;
+            height: auto;
+        }
+    }
+
+    &__button{
+        width: 6em;
+        height: 2em;
+        background-color: #646464;
+        border: .1em solid white;
+        border-radius: .5em .5em 1em 1em;
+        transition: transform 100ms ease-in-out;
+        &:active{
+            transform: scale(0.99);
+        }
+    }
+}
+.power{
+    grid-area: p;
+    position: relative;
+    &__button{
+        position: absolute;
+        left: 0%;
+        top: 25%;
+        width: .6em;
+        height: 5em;
+        background-color: #1E1E1E;
+        border-radius: 0em .2em .2em 0em;
+        cursor: pointer;
+        transition: width 100ms ease-in-out;
+        &:active{
+            width: .3em;
+        }
+    }
+}
