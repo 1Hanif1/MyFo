@@ -1,0 +1,25 @@
+@keyframes lightUp {
+    0% {
+        background-color: black;
+    }
+    10% {
+        background-color: rgb(24, 24, 24);
+    }
+    90%{
+        background-color: rgb(24, 24, 24);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    animation-name: lightUp;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
