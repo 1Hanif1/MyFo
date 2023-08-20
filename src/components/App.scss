@@ -1,0 +1,31 @@
+.phone__instruction{
+    position: absolute;
+    top: 2em;
+    right: 3em;
+    width: 25em;
+    background-color: dodgerblue;
+    border-radius: 1.2em;
+    padding: 1.5em;
+    
+
+    h1{
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    text-align: center;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+
+    p{
+        display: flex;
+        align-items: center;
+        figure{
+            width: 4em;
+            margin-right: .5em;
+        }
+    }
+}

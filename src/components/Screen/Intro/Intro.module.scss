@@ -23,3 +23,159 @@
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
+
+@keyframes growFade {
+    0% {
+        width: 1em;
+        height: 1em;
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1000);
+        opacity: 0;
+    }
+}
+
+$sphereDelay: 1200ms;
+
+.main{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .circle {
+        animation-name: growFade;
+        animation-duration: 1000ms;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+        position: absolute;
+        border-radius: 50%;
+        // transform: translate(-50%, -50%);
+    }
+    .orange{
+        animation-delay: $sphereDelay;
+        background-color: #F79F79;
+        top: 2em;
+        left: 2em;
+    }
+    .green{
+        animation-delay: $sphereDelay + 500ms;
+        background-color: #61E294;
+        top: 10em;
+        right: 2em;
+    }
+    .purple{
+        animation-delay: $sphereDelay + 1000ms;
+        background-color: #725AC1;
+        top: 20em;
+        left: 5em;
+    }
+    .blue{
+        animation-delay: $sphereDelay + 1500ms;
+        background-color: #B6DCFE;
+        top: 30em;
+        right: 2em;
+    }
+}
+
+@keyframes sphereFadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeftM {
+    0% {
+        left: .7em;
+    } 100% {
+        left: 0em;
+    }    
+}
+
+@keyframes slideUpY {
+    0% {
+        top: 1em;
+        opacity: 0;
+    } 100% {
+        top: 0em;
+        opacity: 1;
+    }
+}
+
+@keyframes slideRightF {
+    0% {
+        left: 0.1em;
+    } 100% {
+        left: 0em;
+    }   
+}
+
+@keyframes slideDownO {
+    0% {
+        top: -1em;
+        opacity: 0;
+    } 100% {
+        top: 0em;
+        opacity: 1;
+    }    
+}
+
+
+.main__circle{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    opacity: 0;
+    padding: 2em;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    font-size: 2em;
+
+    animation-name: sphereFadeIn;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: $sphereDelay + 2000ms;
+
+    span{
+        &:nth-child(1){
+            position: relative;
+            left: .7em;
+            animation: slideLeftM 500ms ease-in-out 0s 1 forwards;
+            animation-delay: $sphereDelay + 2500ms;
+        }
+        
+        &:nth-child(2){
+            position: relative;
+            top: 1em;
+            opacity: 0;
+            animation: slideUpY 500ms ease-in-out 0s 1 forwards;
+            animation-delay: $sphereDelay + 3000ms;
+        }
+        &:nth-child(3){
+            position: relative;
+            left: 0.1em;
+            animation: slideRightF 500ms ease-in-out 0s 1 forwards;
+            animation-delay: $sphereDelay + 2500ms;
+        }
+        &:nth-child(4){
+            position: relative;
+            top: -1em;
+            opacity: 0;
+            animation: slideDownO 500ms ease-in-out 0s 1 forwards;
+            animation-delay: $sphereDelay + 3000ms;
+        }
+
+    }
+}

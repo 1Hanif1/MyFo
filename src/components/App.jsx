@@ -1,7 +1,8 @@
-import './App.css'
+import './App.scss'
 import Home from './home/Home'
 import Default from './Screen/default/Default'
 import Intro from './Screen/Intro/Intro'
+import PowerButtonImage from "../assets/Instructions/powerbutton.png"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -40,11 +41,19 @@ function App() {
   };
 
   
-  
   return (
     <>
     <div style={bannerStyle}>UNDER DEVELOPMENT</div>
     <RouterProvider router={router} />
+    <div className='phone__instruction'>
+      <h1>Simulator Instructions</h1>
+      <p>
+        <figure>
+          <img src={PowerButtonImage} alt="power button" />
+        </figure>
+        <span>Press and hold the power button for 3 seconds to power up the device</span>
+      </p>
+    </div>
     </>
   )
 }
