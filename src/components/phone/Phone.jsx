@@ -3,17 +3,22 @@ import "./Phone.scss"
 import menuIcon from '../../assets/Chin/menu.svg'
 import returnIcon from '../../assets/Chin/return.svg'
 import Screen from "../Screen/Screen"
+import { useNavigate } from "react-router-dom"
+
+
 // eslint-disable-next-line react/prop-types
 export default function Phone({className}){
     let buttonPressStart = null, pressDurationChecker = null;
-
+    const navigate = useNavigate();
     const buttonPressed = function(){
+        console.log("hello")
         buttonPressStart = Date.now();
         pressDurationChecker = setInterval(() => {
             if(buttonPressStart && Date.now() - buttonPressStart >= 3000){
-                console.log("BUTTON WAS PRESSED FOR 3 SECONDS")
                 // Change route
+                navigate("/intro")
                 // Disable power button functions
+                console.log("BUTTON WAS PRESSED FOR 3 SECONDS")
             }
             buttonPressStart = null;
         }, 3000)
@@ -74,7 +79,7 @@ export default function Phone({className}){
         </div>
 
         <div className="power">
-            <div className="power__button" onTouchStart={buttonPressed} onTouchEnd={buttonReleased}></div>
+            <div className="power__button" onMouseDown={buttonPressed} onMouseUp={buttonReleased}></div>
         </div>
     </section>
 }

@@ -1,9 +1,10 @@
 import './Screen.scss'
-import Intro from './Intro/Intro'
+import { Outlet } from 'react-router-dom'
+
 /* eslint-disable react/prop-types */
 export default function Screen({className}){
 
     return <div className={`${className}`}>
-        <Intro />
+        <Outlet />
     </div>
 }
