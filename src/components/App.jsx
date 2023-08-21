@@ -7,6 +7,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
+import NewUser from './Screen/NewUser/NewUser'
+import Language from './Screen/NewUser/Language/Language'
 
 const router = createBrowserRouter([
   {
@@ -17,10 +19,20 @@ const router = createBrowserRouter([
           path: '',
           element: <Default />
         },
-          {
-              path: "intro",
-              element: <Intro />
-          }
+        {
+          path: "intro",
+          element: <Intro />
+        },
+        {
+          path: "newuser",
+          element: <NewUser />,
+          children: [
+            {
+              path:"language",
+              element: <Language />
+            }
+          ]
+        }
       ]
   },
 
