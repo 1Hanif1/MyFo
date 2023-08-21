@@ -51,7 +51,10 @@ function App() {
         <figure>
           <img src={PowerButtonImage} alt="power button" />
         </figure>
-        <span>Press and hold the power button for 3 seconds to power up the device</span>
+        <div >
+          <span>Press and hold the power button for 3 seconds to power up the device</span>
+          <span>Press and hold the power button for 5 seconds to shut down the device</span>
+        </div>
       </p>
     </div>
     </>

@@ -3,22 +3,21 @@ import "./Phone.scss"
 import menuIcon from '../../assets/Chin/menu.svg'
 import returnIcon from '../../assets/Chin/return.svg'
 import Screen from "../Screen/Screen"
-import { useNavigate } from "react-router-dom"
+import { Routes, useNavigate, Route } from "react-router-dom"
 
 
 // eslint-disable-next-line react/prop-types
 export default function Phone({className}){
     let buttonPressStart = null, pressDurationChecker = null;
+    let buttonPressStartDefault = null, pressDurationCheckerDefault = null;
     const navigate = useNavigate();
+
     const buttonPressed = function(){
-        console.log("hello")
+        
         buttonPressStart = Date.now();
         pressDurationChecker = setInterval(() => {
             if(buttonPressStart && Date.now() - buttonPressStart >= 3000){
-                // Change route
                 navigate("/intro")
-                // Disable power button functions
-                console.log("BUTTON WAS PRESSED FOR 3 SECONDS")
             }
             buttonPressStart = null;
         }, 3000)
@@ -27,11 +26,47 @@ export default function Phone({className}){
     const buttonReleased = function(){
         if(Date.now() - buttonPressStart < 3000){
             clearInterval(pressDurationChecker)
-            console.log("BUTTON WAS RELEASED TOO SOON")
         } else {            
             buttonPressStart = null;
         }
     }
+
+    const buttonPressedDefault = function() {
+        buttonPressStartDefault = Date.now();
+        pressDurationCheckerDefault = setInterval(() => {
+            if(buttonPressStartDefault && Date.now() - buttonPressStartDefault >= 5000){
+                navigate("/")
+            }
+            buttonPressStartDefault = null;
+        }, 5000)
+    }
+
+    const buttonReleasedDefault = function(){
+        if(Date.now() - buttonPressStartDefault < 5000){
+            clearInterval(pressDurationCheckerDefault)
+        } else {            
+            buttonPressStartDefault = null;
+        }
+    }
+
+    const PowerButtonTurnOn = () =>
+        <div 
+            className="power__button" 
+            onMouseDown={buttonPressed} 
+            onTouchStart={buttonPressed} 
+            onMouseUp={buttonReleased} 
+            onTouchEnd={buttonReleased}
+        ></div>
+
+    const PowerButtonDefault = () => 
+        <div 
+            className="power__button test" 
+            onMouseDown={buttonPressedDefault} 
+            onTouchStart={buttonPressedDefault} 
+            onMouseUp={buttonReleasedDefault} 
+            onTouchEnd={buttonReleasedDefault}
+        ></div>
+    
     return <section className={`phone ${className}`}>
         
         <div className="volume">
@@ -79,7 +114,10 @@ export default function Phone({className}){
         </div>
 
         <div className="power">
-            <div className="power__button" onMouseDown={buttonPressed} onMouseUp={buttonReleased}></div>
+            <Routes>
+                <Route path="/" Component={PowerButtonTurnOn}/>
+                <Route path="*" Component={PowerButtonDefault}/>
+            </Routes>
         </div>
     </section>
 }
