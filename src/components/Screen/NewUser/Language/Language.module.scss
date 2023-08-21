@@ -1,0 +1,80 @@
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        top: -1em;
+    }
+    to {
+        opacity: 1;
+        top: 0em;
+    }
+}
+
+.language{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__title {
+        position: relative;
+        opacity: 0;
+        top: -1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em;
+        padding: 0em;
+        height: 50%;
+        font-weight: 400;
+
+        animation: slideDown 500ms ease-in-out 0s 1 forwards;
+    }
+
+    &__menu{
+        appearance: none;
+        width: 20em;
+        height: 3em;
+        font-size: 1em;
+        padding: .2em;
+        outline: none;
+        border: none;
+        border-bottom: .1em solid gray;
+
+        option {
+            background-color: white;
+            color: black;
+            font-size: 1em;
+            padding: .2em;
+            
+          }
+    }
+
+    &__button {
+        background-color: dodgerblue;
+        width: max-content;
+        padding: .5em 3em;
+        font-size: 1.5em;
+        margin: auto auto;
+        border-radius: 5em;
+        color: white;
+        letter-spacing: .2em;
+        cursor: pointer;
+        transition: transform 200ms ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
+    &__note {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        font-size: .8em;
+        padding: .5em 0em;
+    }
+}
