@@ -26,7 +26,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 3em;
+        font-size: 1em;
         padding: 0em;
         height: 50%;
         font-weight: 400;
@@ -38,11 +38,10 @@
         appearance: none;
         width: 20em;
         height: 3em;
-        font-size: 1em;
+        font-size: .8em;
         padding: .2em;
         outline: none;
         border: none;
-        border-bottom: .1em solid gray;
 
         option {
             background-color: white;
@@ -57,16 +56,16 @@
         background-color: dodgerblue;
         width: max-content;
         padding: .5em 3em;
-        font-size: 1.5em;
+        font-size: 1em;
         margin: auto auto;
         border-radius: 5em;
         color: white;
         letter-spacing: .2em;
         cursor: pointer;
-        transition: transform 200ms ease-in-out;
-        &:hover{
-            transform: scale(1.05);
-        }
+        // transition: transform 200ms ease-in-out;
+        // &:hover{
+        //     transform: scale(1.05);
+        // }
     }
 
     &__note {
@@ -76,5 +75,6 @@
         width: 100%;
         font-size: .8em;
         padding: .5em 0em;
+        opacity: .1;
     }
 }

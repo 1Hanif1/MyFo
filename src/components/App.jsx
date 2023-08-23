@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom'
 import NewUser from './Screen/NewUser/NewUser'
 import Language from './Screen/NewUser/Language/Language'
+import { DataProvider } from '../context/userDataContext'
 
 const router = createBrowserRouter([
   {
@@ -56,7 +57,9 @@ function App() {
   return (
     <>
     <div style={bannerStyle}>UNDER DEVELOPMENT</div>
-    <RouterProvider router={router} />
+    <DataProvider>
+      <RouterProvider router={router} />
+    </DataProvider>
     <div className='phone__instruction'>
       <h1>Simulator Instructions</h1>
       <p>
