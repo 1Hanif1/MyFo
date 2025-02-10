@@ -2,6 +2,7 @@ import styles from './Intro.module.scss'
 import { useNavigate } from 'react-router-dom'
 export default function Intro(){
     const navigate = useNavigate()
+    
     const changeTab = function(){
         const userData = localStorage.getItem('userData')
         setTimeout(() => {
@@ -9,6 +10,7 @@ export default function Intro(){
             else navigate('/newuser/language')
         }, 3000)
     }
+
     return <div className={styles.main}>
         <div className={`${styles.orange} ${styles.circle}`}></div>
         <div className={`${styles.green} ${styles.circle}`}></div>

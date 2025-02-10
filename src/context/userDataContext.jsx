@@ -1,16 +1,16 @@
 // DataContext.js
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 
 const DataContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export function DataProvider({ children }) {
-    // Get Data from Local Storage, if does not exist, create empty object
-    const userData = localStorage.getItem('userData');
-  const [data, setData] = useState(userData ? userData: {});
+  // Get Data from Local Storage, if does not exist, create empty object
+  const [value, setValue] = useLocalStorageState({}, 'user_data');
 
   return (
-    <DataContext.Provider value={{ data, setData }}>
+    <DataContext.Provider value={{ value, setValue }}>
       {children}
     </DataContext.Provider>
   );
